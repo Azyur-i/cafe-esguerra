@@ -29,7 +29,7 @@ section {
 }
 
 #aboutheaderbody {
-  padding: 50px 3%;
+  padding: 10%;
   color: var(--text);
   text-align: center;
   font-size: clamp(10px, 3vw, 18px);
@@ -51,6 +51,7 @@ section {
 
 #aboutgallery img {
   width: 40vh;
+  max-height: 100%;
   padding: 10px;
   margin: 20px;
   border: 1px solid #ddd;
@@ -74,8 +75,52 @@ section {
   background: rgba(0, 0, 0, 0.7);
 }
 
-@media only screen and (max-width: 600px) {
-  .aboutgallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.fade-from-bottom {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.fade-from-bottom.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#textcontainer {
+  display: flex;
+  text-align: justify;
+  padding-bottom: 5%;
+}
+
+#text {
+  flex: 1;
+  padding: 0% 4%;
+}
+
+#image {
+  flex: 1;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  #aboutgallery {
+    grid-template-columns: repeat(2, minmax(0, 40%));
+    margin-left: 5%;
+    gap: 5%;
+  }
+
+  #text {
+    padding-top: 5%;
+    font-size: 75%;
+  }
+  
+  #aboutheadertext {
+    font-size: 150%;
   }
 }
