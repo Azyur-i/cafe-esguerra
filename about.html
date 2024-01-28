@@ -77,25 +77,48 @@
       </button>
     </header>
 
+    <section class="fade-from-bottom" data-inviewport="fade-from-bottom">
     <section>
       <div id="aboutheader">
         <div id="aboutheadertext">
-          <h1>What is Café Esguerra ?</h1>
+          <h1>What is Café Esguerra?</h1>
         </div>
-
         <div id="aboutheaderbody">
-          <h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </h3>
-        </div>
-      </div>
-    </section>
+          <div id="textcontainer">
+            <div id="text">
+                <h2 style="text-align: center;">Welcome</h2>
+                <p> Welcome to Cafe Esguerra, where the aroma of freshly brewed coffee and the warmth of a welcoming ambiance converge to create an unforgettable experience. 
+                  Nestled in the heart of the city, Cafe Esguerra is a haven for coffee enthusiasts and connoisseurs alike. Our commitment to excellence is reflected in every cup we serve, 
+                  featuring a meticulously curated selection of premium beans from around the world. </p>
+            </div>
+            <div id="text">
+              <h2 style="text-align: center;">The Selection</h2>
+                <p> Beyond the exceptional coffee, our menu boasts a diverse array of delectable treats, 
+                  ranging from artisanal pastries to savory delights that cater to every palate. The inviting atmosphere of Cafe Esguerra is enhanced by the chic decor and cozy seating, 
+                  making it an ideal spot for both intimate conversations and solo contemplation. Whether you're seeking a tranquil space to work or catching up with friends over a cup of specialty brew,
+                  Cafe Esguerra is where the art of coffee meets the joy of connection.</p>
+                </div>
+              </div>
+            </div>
+            <section>
+              <div id="textcontainer">
+                <div id="text">
+                  <h1>Our Vision:</h1>
+                  <h2>To Elevate coffee culture, fostering community connections.</h2>
+                </div>
+              </div>
+            </section>
+        
+            <section>
+              <div id="textcontainer">
+                <div id="text">
+                  <h1>Our Mission:</h1>
+                  <h2>Crafting exceptional brews, creating inviting spaces, and celebrating the joy of success.</h2>
+                </div>
+              </div>
+            </section>
+          </section>
+  </section>
     <section>
       <div id="aboutgallery">
         <img src="assets\aboutphotos\aboutphoto1.jpg" />
@@ -165,5 +188,23 @@
         i.onclick = () => i.classList.toggle("full");
       }
     };
+
+     const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('[data-inviewport]').forEach(element => {
+        observer.observe(element);
+      });
+
+      window.onload = () => {
+        for (let i of document.querySelectorAll("#aboutgallery img")) {
+          i.onclick = () => i.classList.toggle("full");
+        }
+      };
   </script>
 </html>
